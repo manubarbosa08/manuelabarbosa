@@ -187,6 +187,68 @@
       background: var(--brown-accent);
     }
 
+    /* ── SENTIMENTOS STRIP ── */
+    .sentimentos-strip {
+      background: #ede8e2;
+      padding: 80px 0;
+    }
+
+    .sentimentos-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 60px;
+      text-align: center;
+    }
+
+    .sentimentos-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .sentimentos-title em {
+      font-style: italic;
+      color: var(--brown-accent);
+    }
+
+    .sentimentos-desc {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .sentimentos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .sentimento-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--text-body);
+      font-size: 13.5px;
+      font-family: 'Lato', sans-serif;
+      padding: 12px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s, transform .15s;
+      font-weight: 400;
+    }
+    .sentimento-tag:hover {
+      background: var(--brown-dark);
+      border-color: var(--brown-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
     /* ── SOBRE ── */
     #sobre {
       background: var(--cream);
@@ -793,6 +855,11 @@
       .nav-links a { font-size: 14px; letter-spacing: 2px; }
       .btn-nav { padding: 14px 32px; font-size: 12px !important; }
 
+      /* SENTIMENTOS */
+      .sentimentos-inner { padding: 0 24px; }
+      .sentimentos-grid { gap: 10px; }
+      .sentimento-tag { font-size: 13px; padding: 11px 18px; }
+
       /* HERO */
       #inicio {
         grid-template-columns: 1fr;
@@ -837,7 +904,7 @@
         max-width: 100%;
       }
       .cta-img { height: 320px; }
-      .cta-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+      .cta-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 
       /* CONTATO */
       .contato-inner {
@@ -886,7 +953,7 @@
       /* CTA */
       .cta-card { margin: 0 20px; }
       .cta-img { height: 280px; }
-      .cta-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+      .cta-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
       .cta-content { padding: 32px 24px; }
 
       /* CONTATO */
@@ -931,6 +998,24 @@
       <img src="https://i.postimg.cc/DyYkDHXT/psimanu-89.jpg" alt="Manuela Barbosa Psicóloga"/>
     </div>
   </section>
+
+  <!-- SENTIMENTOS -->
+  <div class="sentimentos-strip">
+    <div class="sentimentos-inner">
+      <div class="section-tag">Um espaço para você</div>
+      <h2 class="sentimentos-title">O que você tem sentido <em>ultimamente?</em></h2>
+      <p class="sentimentos-desc">Clique no que está te acompanhando — você não precisa carregar isso sozinho.</p>
+      <div class="sentimentos-grid">
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20passando%20por%20baixa%20autoestima%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Baixa autoestima</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20sentido%20dificuldades%20nos%20relacionamentos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Dificuldades nos relacionamentos</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20sofrido%20com%20ansiedade%20ou%20preocupações%20constantes%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Ansiedade ou preocupações constantes</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20com%20problemas%20para%20dormir%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Problemas para dormir</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20sentindo%20muito%20estresse%20ou%20sobrecarga%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Estresse ou sobrecarga</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Sofro%20com%20autocobrança%20excessiva%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Autocobrança excessiva</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20dificuldade%20em%20lidar%20com%20as%20minhas%20emoções%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Dificuldade em lidar com as emoções</a>
+      </div>
+    </div>
+  </div>
 
   <!-- SOBRE -->
   <section id="sobre">
