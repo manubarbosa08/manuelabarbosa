@@ -5,184 +5,1337 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="format-detection" content="telephone=no"/>
   <title>Manuela Barbosa | Psicóloga</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:#f5f0eb;
-      --brown-dark:#3b2314;
-      --brown-mid:#5c3d2e;
-      --brown-accent:#7a5c44;
-      --green:#4a7c59;
-      --text-dark:#2c1810;
-      --text-body:#4a3728;
-      --border:#d4c8be;
+      --cream: #f5f0eb;
+      --brown-dark: #3b2314;
+      --brown-mid: #5c3d2e;
+      --brown-accent: #7a5c44;
+      --green: #4a7c59;
+      --green-light: #6a9e77;
+      --text-dark: #2c1810;
+      --text-body: #4a3728;
+      --text-light: #7a6a60;
+      --border: #d4c8be;
     }
 
-    html { scroll-behavior:smooth; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family:'Lato',sans-serif;
-      background:var(--cream);
-      color:var(--text-body);
-      line-height:1.7;
+      font-family: 'Lato', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-body);
+      line-height: 1.7;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
-      position:fixed;
-      top:0; left:0; right:0;
-      background:var(--cream);
-      display:flex;
-      justify-content:space-between;
-      padding:20px 40px;
-      z-index:1000;
-      border-bottom:1px solid transparent;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 60px;
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    nav.scrolled { border-color: var(--border); box-shadow: 0 2px 20px rgba(0,0,0,.06); }
+
+    .nav-logo {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-dark);
+      letter-spacing: .5px;
+      text-decoration: none;
+    }
+    .nav-logo em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
     }
 
-    nav.scrolled {
-      border-bottom:1px solid var(--border);
-    }
-
-    .nav-links {
-      display:flex;
-      gap:30px;
-      list-style:none;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
     .nav-links a {
-      text-decoration:none;
-      font-size:12px;
-      text-transform:uppercase;
-      color:var(--text-dark);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      font-weight: 400;
+      transition: color .2s;
     }
+    .nav-links a:hover { color: var(--brown-accent); }
 
-    /* HERO */
+    .btn-nav {
+      background: var(--brown-dark);
+      color: #fff !important;
+      padding: 12px 24px;
+      letter-spacing: 1.5px;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      transition: background .2s !important;
+    }
+    .btn-nav:hover { background: var(--brown-mid) !important; color: #fff !important; }
+
+    .nav-instagram {
+      display: flex;
+      align-items: center;
+      color: var(--text-dark);
+      transition: color .2s;
+    }
+    .nav-instagram:hover { color: var(--brown-accent); }
+
+    /* ── HERO ── */
     #inicio {
-      min-height:100vh;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      padding-top:100px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
     }
 
     .hero-left {
-      padding:80px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+    }
+
+    .hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown-accent);
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--brown-accent);
     }
 
     .hero-title {
-      font-family:'Cormorant Garamond',serif;
-      font-size:64px;
-      color:var(--text-dark);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 5.5vw, 72px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--brown-accent);
     }
 
+    .hero-desc {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.8;
+      max-width: 380px;
+    }
+    .hero-desc p { margin-bottom: 16px; }
+    .hero-desc strong { font-weight: 700; color: var(--text-dark); }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
     .hero-right img {
-      width:100%;
-      height:100%;
-      object-fit:cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
-    /* SECTIONS */
-    section { padding:100px 40px; }
+    /* ── SECTION COMMONS ── */
+    section { padding: 100px 0; }
 
-    /* CARDS */
+    .section-tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown-accent);
+      margin-bottom: 24px;
+    }
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--brown-accent);
+    }
+
+    .section-tag-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown-accent);
+      margin-bottom: 24px;
+    }
+    .section-tag-left::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--brown-accent);
+    }
+
+    /* ── SENTIMENTOS STRIP ── */
+    .sentimentos-strip {
+      background: #ede8e2;
+      padding: 80px 0;
+    }
+
+    .sentimentos-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 60px;
+      text-align: center;
+    }
+
+    .sentimentos-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .sentimentos-title em {
+      font-style: italic;
+      color: var(--brown-accent);
+    }
+
+    .sentimentos-desc {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .sentimentos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .sentimento-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--text-body);
+      font-size: 13.5px;
+      font-family: 'Lato', sans-serif;
+      padding: 12px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s, transform .15s;
+      font-weight: 400;
+    }
+    .sentimento-tag:hover {
+      background: var(--brown-dark);
+      border-color: var(--brown-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ── SOBRE ── */
+    #sobre {
+      background: var(--cream);
+    }
+
+    .sobre-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sobre-img {
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .sobre-img img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .sobre-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 3.5vw, 50px);
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 28px;
+    }
+    .sobre-content h2 em {
+      font-style: italic;
+      color: var(--brown-accent);
+    }
+
+    .sobre-content p {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    /* ── TRAJETÓRIA ── */
+    #trajetoria {
+      background: var(--cream);
+    }
+
+    .trajetoria-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .trajetoria-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 3.5vw, 52px);
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 60px;
+    }
+    .trajetoria-inner h2 em {
+      font-style: italic;
+      color: var(--brown-accent);
+    }
+
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: var(--green);
+      opacity: .35;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 52px;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -37px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2.5px solid var(--green);
+      background: var(--cream);
+    }
+    .timeline-dot.filled {
+      background: var(--green);
+    }
+
+    .timeline-year {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      font-size: 14.5px;
+      color: var(--text-light);
+      line-height: 1.75;
+    }
+
+    /* ── QUOTE BANNER ── */
+    .quote-banner {
+      background: var(--brown-dark);
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .quote-banner blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(26px, 3vw, 40px);
+      color: #fff;
+      line-height: 1.4;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-weight: 300;
+    }
+    .quote-author {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+    .quote-author::before { content: '— '; }
+
+    /* ── ACT SECTION ── */
+    #act {
+      background: #ede8e2;
+    }
+
+    .act-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 60px;
+      text-align: center;
+    }
+
+    .act-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+    .act-inner h2 em {
+      font-style: italic;
+      color: var(--brown-accent);
+    }
+
+    .act-desc {
+      font-size: 15.5px;
+      color: var(--text-body);
+      line-height: 1.85;
+      max-width: 720px;
+      margin: 0 auto 16px;
+    }
+    .act-desc strong { font-weight: 700; color: var(--text-dark); }
+    .act-desc em { font-style: italic; }
+
+    .act-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 60px;
+    }
+
+    .act-card {
+      background: var(--cream);
+      border-radius: 4px;
+      padding: 36px 28px;
+      text-align: left;
+      border-top: 3px solid var(--green);
+    }
+
+    .act-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      color: var(--green-light);
+      opacity: .6;
+      font-weight: 300;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .act-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .act-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.75;
+    }
+
+    /* ── SERVIÇOS ── */
+    #servicos { background: var(--cream); }
+
+    .servicos-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 60px;
+      text-align: center;
+    }
+
+    .servicos-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 60px;
+    }
+    .servicos-inner h2 em {
+      font-style: italic;
+      color: var(--brown-accent);
+    }
+
     .servicos-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
 
-    .card {
-      background:#fff;
-      padding:24px;
-      border-radius:6px;
+    .servico-card {
+      background: #ede8e2;
+      border-radius: 4px;
+      padding: 40px 36px;
+      text-align: left;
+      transition: transform .2s;
+    }
+    .servico-card:hover { transform: translateY(-3px); }
+
+    .servico-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+      display: block;
     }
 
-    /* WHATSAPP */
-    .whatsapp {
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      background:#25d366;
-      width:55px;
-      height:55px;
-      border-radius:50%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      color:#fff;
-      text-decoration:none;
-      z-index:999;
+    .servico-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 14px;
     }
 
+    .servico-card p {
+      font-size: 14.5px;
+      color: var(--text-body);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .servico-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .servico-tag {
+      font-size: 10.5px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 700;
+    }
+    .servico-tag::before { content: '• '; }
+
+    /* ── CTA CARD ── */
+    .cta-section {
+      background: var(--cream);
+      padding: 0 0 80px;
+    }
+
+    .cta-card {
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .cta-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .cta-content {
+      background: var(--brown-dark);
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cta-content blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: #fff;
+      line-height: 1.55;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.4);
+      padding-bottom: 4px;
+      width: fit-content;
+      transition: border-color .2s;
+    }
+    .cta-btn:hover { border-color: #fff; }
+
+    /* ── CONTATO ── */
+    #contato {
+      background: var(--brown-dark);
+      padding: 100px 0;
+    }
+
+    .contato-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contato-left h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .contato-left h2 em {
+      font-style: italic;
+      color: var(--brown-accent);
+    }
+
+    .contato-left p {
+      font-size: 14.5px;
+      color: rgba(255,255,255,.6);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .contato-info { display: flex; flex-direction: column; gap: 18px; }
+
+    .contato-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .contato-info-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,.1);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .contato-info-text {
+      font-size: 14px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.6;
+    }
+
+    .contato-form { display: flex; flex-direction: column; gap: 16px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-label {
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      font-weight: 700;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 3px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(255,255,255,.3);
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: rgba(255,255,255,.4);
+    }
+
+    .form-select {
+      appearance: none;
+      cursor: pointer;
+      color: rgba(255,255,255,.45);
+    }
+    .form-select option { background: var(--brown-dark); color: #fff; }
+
+    .form-textarea { resize: none; height: 120px; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 16px 28px;
+      cursor: pointer;
+      transition: background .2s, border-color .2s;
+      border-radius: 2px;
+      width: fit-content;
+      margin-top: 8px;
+    }
+    .btn-submit:hover {
+      background: rgba(255,255,255,.22);
+      border-color: rgba(255,255,255,.5);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown-dark);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 28px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,.55);
+    }
+    .footer-logo em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+      letter-spacing: .5px;
+    }
+
+    .footer-crp {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+      letter-spacing: .5px;
+    }
+
+    /* ── WHATSAPP BTN ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 54px;
+      height: 54px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(37,211,102,.4);
+      z-index: 999;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(37,211,102,.5);
+    }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp .7s ease forwards;
+    }
+    .delay-1 { animation-delay: .1s; }
+    .delay-2 { animation-delay: .25s; }
+    .delay-3 { animation-delay: .4s; }
+    .delay-4 { animation-delay: .55s; }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 200;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — TABLET (≤ 900px)
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      /* NAV */
+      nav { padding: 16px 24px; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        background: var(--cream);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        padding: 100px 40px 60px;
+        z-index: 150;
+        min-height: 100dvh;
+        box-shadow: 0 4px 30px rgba(0,0,0,.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 14px; letter-spacing: 2px; }
+      .btn-nav { padding: 14px 32px; font-size: 12px !important; }
+
+      /* SENTIMENTOS */
+      .sentimentos-inner { padding: 0 24px; }
+      .sentimentos-grid { gap: 10px; }
+      .sentimento-tag { font-size: 13px; padding: 11px 18px; }
+
+      /* HERO */
+      #inicio {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 72px;
+      }
+      .hero-left {
+        padding: 56px 24px 40px;
+        text-align: center;
+        align-items: center;
+      }
+      .hero-tag { justify-content: center; }
+      .hero-desc { max-width: 100%; text-align: left; }
+      .hero-right { height: 60vw; max-height: 420px; }
+
+      /* SOBRE */
+      .sobre-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 24px;
+      }
+      .sobre-img img { height: 400px; }
+
+      /* TRAJETÓRIA */
+      .trajetoria-inner { padding: 0 24px; }
+
+      /* QUOTE */
+      .quote-banner { padding: 60px 24px; }
+
+      /* ACT */
+      .act-inner { padding: 0 24px; }
+      .act-cards { grid-template-columns: 1fr; gap: 20px; }
+
+      /* SERVIÇOS */
+      .servicos-inner { padding: 0 24px; }
+      .servicos-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      /* CTA */
+      .cta-card {
+        grid-template-columns: 1fr;
+        margin: 0 24px;
+        max-width: 100%;
+      }
+      .cta-img { height: 320px; }
+      .cta-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+
+      /* CONTATO */
+      .contato-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 0 24px;
+      }
+      .form-row { grid-template-columns: 1fr; }
+
+      /* FOOTER */
+      footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 24px 24px;
+      }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — MOBILE (≤ 480px)
+    ══════════════════════════════════════ */
+    @media (max-width: 480px) {
+      section { padding: 72px 0; }
+
+      /* HERO */
+      .hero-right { height: 72vw; max-height: 320px; }
+      .hero-left { padding: 48px 20px 32px; }
+
+      /* SOBRE */
+      .sobre-inner { padding: 0 20px; gap: 32px; }
+      .sobre-img img { height: 300px; }
+
+      /* TRAJETÓRIA */
+      .trajetoria-inner { padding: 0 20px; }
+
+      /* QUOTE */
+      .quote-banner { padding: 48px 20px; }
+
+      /* ACT */
+      .act-inner { padding: 0 20px; }
+
+      /* SERVIÇOS */
+      .servicos-inner { padding: 0 20px; }
+      .servico-card { padding: 28px 22px; }
+
+      /* CTA */
+      .cta-card { margin: 0 20px; }
+      .cta-img { height: 280px; }
+      .cta-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+      .cta-content { padding: 32px 24px; }
+
+      /* CONTATO */
+      .contato-inner { padding: 0 20px; gap: 40px; }
+      #contato { padding: 80px 0; }
+
+      /* FOOTER */
+      footer { padding: 24px 20px; }
+    }
   </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div><strong>Manuela Barbosa</strong></div>
-  <ul class="nav-links">
-    <li><a href="#inicio">Início</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
-</nav>
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#inicio" class="nav-logo">Manuela Barbosa <em>Psicóloga Clínica</em></a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#contato" class="btn-nav">Agendar Consulta</a></li>
+      <li><a href="https://instagram.com/psi.manubarbosa" class="nav-instagram" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a></li>
+    </ul>
+  </nav>
 
-<!-- HERO -->
-<section id="inicio">
-  <div class="hero-left">
-    <h1 class="hero-title">Bem-vinda</h1>
-    <p>Psicoterapia com ciência, cuidado e presença.</p>
+  <!-- HERO -->
+  <section id="inicio">
+    <div class="hero-left">
+      <div class="hero-tag fade-up">Psicóloga · CRP 08/39992</div>
+      <h1 class="hero-title fade-up delay-1">
+        Que bom que<br>
+        você chegou <em>até<br>aqui.</em>
+      </h1>
+      <div class="hero-desc fade-up delay-2">
+        <p>Dar esse primeiro passo em direção à terapia já diz muito sobre você.</p>
+        <p>Estou aqui para caminhar ao seu lado — com <strong>ciência, cuidado e presença.</strong></p>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://i.postimg.cc/DyYkDHXT/psimanu-89.jpg" alt="Manuela Barbosa Psicóloga"/>
+    </div>
+  </section>
+
+  <!-- SENTIMENTOS -->
+  <div class="sentimentos-strip">
+    <div class="sentimentos-inner">
+      <div class="section-tag">Um espaço para você</div>
+      <h2 class="sentimentos-title">O que você tem sentido <em>ultimamente?</em></h2>
+      <p class="sentimentos-desc">Clique no que está te acompanhando — você não precisa carregar isso sozinho.</p>
+      <div class="sentimentos-grid">
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20passando%20por%20baixa%20autoestima%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Baixa autoestima</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20sentido%20dificuldades%20nos%20relacionamentos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Dificuldades nos relacionamentos</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20sofrido%20com%20ansiedade%20ou%20preocupações%20constantes%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Ansiedade ou preocupações constantes</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20com%20problemas%20para%20dormir%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Problemas para dormir</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20sentindo%20muito%20estresse%20ou%20sobrecarga%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Estresse ou sobrecarga</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Sofro%20com%20autocobrança%20excessiva%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Autocobrança excessiva</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20dificuldade%20em%20lidar%20com%20as%20minhas%20emoções%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Dificuldade em lidar com as emoções</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20com%20dificuldade%20de%20lidar%20com%20perdas%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Dificuldade em lidar com perdas</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20sentido%20tristeza%20persistente%20ou%20depressão%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="sentimento-tag" target="_blank">Tristeza persistente ou depressão</a>
+      </div>
+    </div>
   </div>
 
-  <div class="hero-right">
-    <img src="https://i.postimg.cc/DyYkDHXT/psimanu-89.jpg" alt="Psicóloga"/>
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="sobre-inner">
+      <div class="sobre-img">
+        <img src="https://i.postimg.cc/Xq7m1kN4/psimanu-53.jpg" alt="Manuela Barbosa"/>
+      </div>
+      <div class="sobre-content">
+        <div class="section-tag-left">Sobre mim</div>
+        <h2>Olá, sou a<br><em>Manuela Barbosa</em></h2>
+        <p>Sou psicóloga clínica graduada pela PUCPR (2018–2023) e tenho formação em Terapia de Aceitação e Compromisso (ACT). Acredito que a ciência do comportamento é uma ferramenta poderosa para ajudar pessoas a viverem uma vida com mais sentido — mesmo nos dias difíceis.</p>
+        <p>Atendo de forma presencial crianças, adolescentes e adultos, e online adolescentes e adultos.</p>
+        <p>Além da psicoterapia individual, ofereço orientação de pais, avaliação psicológica, palestras e aulas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAJETÓRIA -->
+  <section id="trajetoria" style="padding-top:80px;">
+    <div class="trajetoria-inner">
+      <div class="section-tag" style="justify-content:flex-start;">Minha trajetória</div>
+      <h2>Como cheguei até <em>aqui</em></h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2018</div>
+          <h3>Início da graduação em Psicologia</h3>
+          <p>Ingressei na PUCPR movida pela curiosidade e vontade de ajudar pessoas a viverem vidas mais significativas.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2019</div>
+          <h3>Estágio em Análise do Comportamento Aplicada (ABA)</h3>
+          <p>Comecei um estágio em ABA, atendendo crianças e adolescentes neurodivergentes. Aqui começou a minha paixão pela ciência e pelo comportamento humano.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2021</div>
+          <h3>Estágio clínico e primeiros atendimentos</h3>
+          <p>Iniciei os atendimentos clínicos e fiquei completamente apaixonada pela clínica — foi a confirmação de que estava no caminho certo.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2022</div>
+          <h3>Estágio em Neuropsicologia</h3>
+          <p>Comecei um estágio na faculdade realizando testes e avaliações psicológicas. Uma área que me encantou profundamente.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2023</div>
+          <h3>Pós-graduação em Análise do Comportamento Aplicada</h3>
+          <p>Aprofundei meus conhecimentos na área que me apaixonou desde os primeiros estágios, com foco em aplicações clínicas e comportamentais.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2024</div>
+          <h3>Mestrado — Neurociências do Comportamento</h3>
+          <p>Ingressei como aluna especial no mestrado, estudando Neurociências do Comportamento e ampliando minha visão sobre os fundamentos biológicos e psicológicos do comportamento humano.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2025</div>
+          <h3>Formação em Terapia de Aceitação e Compromisso (ACT)</h3>
+          <p>Me aprofundei na ACT e me identifiquei profundamente com sua proposta: não lutar contra o sofrimento, mas aprender a se mover em direção ao que importa — mesmo com ele presente.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot filled"></div>
+          <div class="timeline-year">2024 – Hoje</div>
+          <h3>Agenda aberta para atendimentos</h3>
+          <p>Com o CRP em mãos e todo o conhecimento adquirido na minha caminhada, abri agenda para atendimentos e sigo atendendo presencialmente e online — levando uma psicologia baseada em evidências e centrada no que realmente importa para cada pessoa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE BANNER -->
+  <div class="quote-banner">
+    <blockquote>"A ciência do comportamento a serviço do seu bem-estar."</blockquote>
+    <p class="quote-author">Manuela Pereira Barbosa</p>
   </div>
-</section>
 
-<!-- SOBRE -->
-<section id="sobre">
-  <h2>Sobre mim</h2>
-  <p>Psicóloga clínica com abordagem baseada em evidências.</p>
-</section>
+  <!-- ACT -->
+  <section id="act">
+    <div class="act-inner">
+      <div class="section-tag">Como trabalho</div>
+      <h2>Terapia de Aceitação<br>e <em>Compromisso (ACT)</em></h2>
+      <p class="act-desc">A ACT é uma abordagem baseada em evidências que propõe uma relação diferente com os seus pensamentos e emoções. Em vez de tentar eliminar o que te incomoda, o objetivo é desenvolver <strong>flexibilidade psicológica</strong> — a capacidade de agir de acordo com o que realmente importa para você, mesmo quando a vida é difícil.</p>
+      <p class="act-desc">Não se trata de se sentir melhor a qualquer custo, mas de <em>viver melhor</em> — com mais presença, clareza e conexão com os seus valores.</p>
 
-<!-- SERVIÇOS -->
-<section id="servicos">
-  <h2>Serviços</h2>
+      <div class="act-cards">
+        <div class="act-card">
+          <div class="act-num">01</div>
+          <h3>Aceitar o que não podemos controlar</h3>
+          <p>Aprender a fazer espaço para pensamentos e emoções difíceis, sem deixar que eles ditem suas ações.</p>
+        </div>
+        <div class="act-card">
+          <div class="act-num">02</div>
+          <h3>Conectar-se com seus valores</h3>
+          <p>Identificar o que realmente importa para você e usar isso como bússola para as suas decisões do dia a dia.</p>
+        </div>
+        <div class="act-card">
+          <div class="act-num">03</div>
+          <h3>Agir com compromisso</h3>
+          <p>Dar passos concretos em direção a uma vida mais plena — mesmo quando o medo, a ansiedade ou a dúvida aparecem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="servicos-grid">
-    <div class="card">Psicoterapia individual</div>
-    <div class="card">Orientação de pais</div>
-    <div class="card">Palestras</div>
-    <div class="card">Avaliação psicológica</div>
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="servicos-inner">
+      <div class="section-tag">Serviços que ofereço</div>
+      <h2>Como eu posso <em>te ajudar</em></h2>
+
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <span class="servico-icon">💬</span>
+          <h3>Psicoterapia Individual</h3>
+          <p>Atendimento personalizado para crianças, adolescentes e adultos que desejam desenvolver habilidades emocionais e construir formas mais saudáveis de lidar com desafios comportamentais e psicológicos.</p>
+          <div class="servico-tags">
+            <span class="servico-tag">Presencial (crianças, adolescentes e adultos)</span>
+            <span class="servico-tag">Online (adolescentes e adultos)</span>
+          </div>
+        </div>
+
+        <div class="servico-card">
+          <span class="servico-icon">👨‍👩‍👧</span>
+          <h3>Orientação de Pais</h3>
+          <p>Suporte especializado para pais e responsáveis que desejam compreender melhor o comportamento dos filhos e fortalecer os vínculos familiares.</p>
+          <div class="servico-tags">
+            <span class="servico-tag">Presencial & Online</span>
+          </div>
+        </div>
+
+        <div class="servico-card">
+          <span class="servico-icon">🎤</span>
+          <h3>Palestras & Aulas</h3>
+          <p>Conteúdo educativo sobre saúde mental, comportamento e bem-estar para empresas, escolas e instituições — baseado em ciência e acessível a todos.</p>
+          <div class="servico-tags">
+            <span class="servico-tag">Presencial & Online</span>
+          </div>
+        </div>
+
+        <div class="servico-card">
+          <span class="servico-icon">🧠</span>
+          <h3>Avaliação Psicológica</h3>
+          <p>Avaliações psicológicas com investigação do funcionamento cognitivo (atenção, memória, funções executivas e habilidades intelectuais), com aplicação de testes padronizados, devolutiva e laudo psicológico.</p>
+          <div class="servico-tags">
+            <span class="servico-tag">Presencial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA CARD -->
+  <div class="cta-section">
+    <div class="cta-card" style="margin: 0 auto; max-width:680px;">
+      <div class="cta-img">
+        <img src="https://i.postimg.cc/C1HpQKj1/psimanu-201.jpg" alt="Manuela Barbosa"/>
+      </div>
+      <div class="cta-content">
+        <blockquote>"A terapia é um dos atos mais corajosos que você pode fazer por si mesmo."</blockquote>
+        <a href="#contato" class="cta-btn">Quero Começar →</a>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- CONTATO -->
-<section id="contato">
-  <h2>Contato</h2>
-  <p>WhatsApp: (43) 98858-3535</p>
-</section>
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="contato-inner">
+      <div class="contato-left">
+        <div class="section-tag-left" style="color:rgba(255,255,255,.45);">
+          <span style="display:block;width:28px;height:1px;background:rgba(255,255,255,.35);"></span>
+          Contato
+        </div>
+        <h2>Vamos dar o<br><em>primeiro passo?</em></h2>
+        <p>O caminho começa com uma decisão. Entre em contato e agende sua consulta — responderei em até 24 horas.</p>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/5543988583535">💬</a>
+        <div class="contato-info">
+          <div class="contato-info-item">
+            <div class="contato-info-icon">📧</div>
+            <div class="contato-info-text">psimanuelabarbosa@gmail.com</div>
+          </div>
+          <div class="contato-info-item">
+            <div class="contato-info-icon">📱</div>
+            <div class="contato-info-text">(43) 98858-3535</div>
+          </div>
+          <div class="contato-info-item">
+            <div class="contato-info-icon">📍</div>
+            <div class="contato-info-text">
+              Av. Ayrton Senna, 500 — Sala 2702<br>
+              <span style="color:rgba(255,255,255,.45);">Clínica Núcleo Evoluir · Londrina, PR</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- JS -->
-<script>
-  const nav = document.getElementById('nav');
+      <div>
+        <div class="contato-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nome</label>
+              <input type="text" class="form-input" placeholder="Seu nome completo"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Telefone</label>
+              <input type="tel" class="form-input" placeholder="(43) 9.0000-0000"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-input" placeholder="seu@email.com"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Serviço de Interesse</label>
+            <select class="form-select">
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option>Psicoterapia Individual</option>
+              <option>Orientação de Pais</option>
+              <option>Palestras & Aulas</option>
+              <option>Avaliação Psicológica</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensagem (opcional)</label>
+            <textarea class="form-textarea" placeholder="Conte um pouco sobre o que te trouxe até aqui..."></textarea>
+          </div>
+          <button class="btn-submit">Enviar Mensagem →</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
-</script>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Manuela Barbosa <em>Psicóloga Clínica</em></div>
+    <div class="footer-copy">© 2026 · Todos os direitos reservados</div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div class="footer-crp">CRP 08/39992</div>
+      <a href="https://instagram.com/psi.manubarbosa" target="_blank" rel="noopener" aria-label="Instagram" style="color:rgba(255,255,255,.45);transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </footer>
 
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/5543988583535" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+    // Fechar menu ao clicar num link
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Intersection observer for timeline animation
+    const items = document.querySelectorAll('.timeline-item, .act-card, .servico-card');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.15 });
+
+    items.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      io.observe(el);
+    });
+  </script>
 </body>
 </html>
