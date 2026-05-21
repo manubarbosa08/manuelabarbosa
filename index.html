@@ -133,9 +133,12 @@
     .servico-icon { font-size: 28px; margin-bottom: 20px; display: block; }
     .servico-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--text-dark); margin-bottom: 14px; }
     .servico-card p { font-size: 14.5px; color: var(--text-body); line-height: 1.75; margin-bottom: 20px; }
-    .servico-tags { display: flex; flex-direction: column; gap: 4px; }
-    .servico-tag { font-size: 10.5px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--green); font-weight: 700; }
-    .servico-tag::before { content: '• '; }
+    .servico-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .servico-tag { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; padding: 5px 11px; border-radius: 100px; }
+    .servico-tag.presencial { background: rgba(74,124,89,.12); color: var(--green); border: 1px solid rgba(74,124,89,.25); }
+    .servico-tag.presencial::before { content: '📍'; font-size: 10px; letter-spacing: 0; }
+    .servico-tag.online { background: rgba(90,110,180,.1); color: #4a6ab4; border: 1px solid rgba(90,110,180,.2); }
+    .servico-tag.online::before { content: '💻'; font-size: 10px; letter-spacing: 0; }
 
     .cta-section { background: var(--cream); padding: 0 0 80px; }
     .cta-card { max-width: 700px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; border-radius: 4px; overflow: hidden; }
@@ -257,7 +260,7 @@
   <main id="conteudo-principal">
   <section id="inicio">
     <div class="hero-left">
-      <div class="hero-tag fade-up">Psicóloga Presencial & Online · CRP 08/39992</div>
+      <div class="hero-tag fade-up">Presencial em Londrina · Online para todo o Brasil · CRP 08/39992</div>
       <h1 class="hero-title fade-up delay-1">Que bom que<br>você chegou <em>até<br>aqui.</em></h1>
       <div class="hero-desc fade-up delay-2">
         <p>Dar esse primeiro passo em direção à terapia já diz muito sobre você.</p>
@@ -345,10 +348,10 @@
       <div class="section-tag">Serviços que ofereço</div>
       <h2>Como eu posso <em>te ajudar</em></h2>
       <div class="servicos-grid">
-        <div class="servico-card"><span class="servico-icon">💬</span><h3>Psicoterapia Individual</h3><p>Atendimento personalizado para crianças, adolescentes e adultos que desejam desenvolver habilidades emocionais e construir formas mais saudáveis de lidar com desafios comportamentais e psicológicos.</p><div class="servico-tags"><span class="servico-tag">Presencial (crianças, adolescentes e adultos)</span><span class="servico-tag">Online (adolescentes e adultos)</span></div></div>
-        <div class="servico-card"><span class="servico-icon">👨‍👩‍👧</span><h3>Orientação de Pais</h3><p>Suporte especializado para pais e responsáveis que desejam compreender melhor o comportamento dos filhos e fortalecer os vínculos familiares.</p><div class="servico-tags"><span class="servico-tag">Presencial & Online</span></div></div>
-        <div class="servico-card"><span class="servico-icon">🎤</span><h3>Palestras & Aulas</h3><p>Conteúdo educativo sobre saúde mental, comportamento e bem-estar para empresas, escolas e instituições — baseado em ciência e acessível a todos.</p><div class="servico-tags"><span class="servico-tag">Presencial & Online</span></div></div>
-        <div class="servico-card"><span class="servico-icon">🧠</span><h3>Avaliação Psicológica</h3><p>Avaliações psicológicas com investigação do funcionamento cognitivo (atenção, memória, funções executivas e habilidades intelectuais), com aplicação de testes padronizados, devolutiva e laudo psicológico.</p><div class="servico-tags"><span class="servico-tag">Presencial</span></div></div>
+        <div class="servico-card"><span class="servico-icon">💬</span><h3>Psicoterapia Individual</h3><p>Atendimento personalizado para crianças, adolescentes e adultos que desejam desenvolver habilidades emocionais e construir formas mais saudáveis de lidar com desafios comportamentais e psicológicos.</p><div class="servico-tags"><span class="servico-tag presencial">Presencial — Londrina, PR</span><span class="servico-tag online">Online — Todo o Brasil</span></div></div>
+        <div class="servico-card"><span class="servico-icon">👨‍👩‍👧</span><h3>Orientação de Pais</h3><p>Suporte especializado para pais e responsáveis que desejam compreender melhor o comportamento dos filhos e fortalecer os vínculos familiares.</p><div class="servico-tags"><span class="servico-tag presencial">Presencial — Londrina, PR</span><span class="servico-tag online">Online — Todo o Brasil</span></div></div>
+        <div class="servico-card"><span class="servico-icon">🎤</span><h3>Palestras & Aulas</h3><p>Conteúdo educativo sobre saúde mental, comportamento e bem-estar para empresas, escolas e instituições — baseado em ciência e acessível a todos.</p><div class="servico-tags"><span class="servico-tag presencial">Presencial — Londrina, PR</span><span class="servico-tag online">Online — Todo o Brasil</span></div></div>
+        <div class="servico-card"><span class="servico-icon">🧠</span><h3>Avaliação Psicológica</h3><p>Avaliações psicológicas com investigação do funcionamento cognitivo (atenção, memória, funções executivas e habilidades intelectuais), com aplicação de testes padronizados, devolutiva e laudo psicológico.</p><div class="servico-tags"><span class="servico-tag presencial">Presencial — Londrina, PR</span></div></div>
       </div>
     </div>
   </section>
@@ -368,7 +371,7 @@
         <div class="blog-featured-num">01</div>
         <div class="blog-featured-body">
           <div class="blog-featured-tag">Avaliação Psicológica</div>
-          <h3 class="blog-featured-title">O que é avaliação psicológica e quando fazer?</h3>
+          <h3 class="blog-featured-title">Se conhecer mais fundo: o que é uma avaliação psicológica e o que ela pode revelar sobre você</h3>
           <p class="blog-featured-desc">Entenda o que acontece em um processo de avaliação psicológica, para quem é indicada e o que esperar do laudo — sem mistérios.</p>
         </div>
         <div class="blog-featured-cta">Ler artigo →</div>
@@ -378,21 +381,21 @@
         <article class="blog-card-small" onclick="abrirPost('autocobranca')">
           <div class="blog-small-num">02</div>
           <div class="blog-small-tag">Saúde Mental</div>
-          <h3 class="blog-small-title">Autocobrança excessiva: reconheça os sinais</h3>
+          <h3 class="blog-small-title">Você não precisa ser perfeito para merecer descanso</h3>
           <p class="blog-small-desc">Exigir muito de si mesmo pode parecer virtude — mas quando passa do limite, vira sofrimento.</p>
           <span class="blog-small-link">Ler artigo →</span>
         </article>
         <article class="blog-card-small" onclick="abrirPost('ansiedade')">
           <div class="blog-small-num">03</div>
           <div class="blog-small-tag">Ansiedade</div>
-          <h3 class="blog-small-title">Ansiedade: quando é hora de buscar ajuda?</h3>
+          <h3 class="blog-small-title">Quando a ansiedade passa a falar mais alto que você — e o que fazer com isso</h3>
           <p class="blog-small-desc">Sentir ansiedade é humano. Mas como saber quando ela passa a pedir atenção profissional?</p>
           <span class="blog-small-link">Ler artigo →</span>
         </article>
         <article class="blog-card-small" onclick="abrirPost('orientacaopais')">
           <div class="blog-small-num">04</div>
           <div class="blog-small-tag">Orientação de Pais</div>
-          <h3 class="blog-small-title">Orientação de pais: quando procurar ajuda?</h3>
+          <h3 class="blog-small-title">Criar filhos é difícil. Pedir ajuda faz parte de ser um bom pai ou mãe</h3>
           <p class="blog-small-desc">Criar filhos é uma das tarefas mais desafiadoras da vida. Saiba quando buscar apoio profissional.</p>
           <span class="blog-small-link">Ler artigo →</span>
         </article>
@@ -447,22 +450,22 @@
     const posts = {
       avaliacao: {
         tag: 'Avaliação Psicológica',
-        titulo: 'O que é avaliação psicológica e quando fazer?',
+        titulo: 'Se conhecer mais fundo: o que é uma avaliação psicológica e o que ela pode revelar sobre você',
         corpo: '<p>A avaliação psicológica é um processo técnico e ético conduzido por um psicólogo, com o objetivo de compreender o funcionamento psicológico de uma pessoa — seus aspectos cognitivos, emocionais e comportamentais.</p><h3>O que é avaliado?</h3><p>Dependendo da demanda, a avaliação pode investigar funções como <strong>atenção, memória, funções executivas e habilidades intelectuais</strong>. São aplicados testes padronizados e validados cientificamente, além de entrevistas e observações clínicas.</p><h3>Para quem é indicada?</h3><p>A avaliação psicológica pode ser indicada em diversas situações: suspeita de TDAH, dificuldades de aprendizagem, processos seletivos, investigação de altas habilidades, exigências jurídicas ou simplesmente para se autoconhecer melhor.</p><h3>Como funciona na prática?</h3><p>O processo é dividido em etapas: entrevistas iniciais, aplicação dos testes, análise dos resultados e devolutiva — uma conversa onde os achados são explicados de forma clara e acessível. Ao final, é emitido um laudo psicológico com as conclusões e recomendações.</p><h3>Quanto tempo leva?</h3><p>O processo costuma ocorrer ao longo de algumas sessões, variando conforme a complexidade da demanda. O importante é que cada etapa seja feita com cuidado e rigor — para que o resultado seja realmente útil para você.</p>'
       },
       autocobranca: {
         tag: 'Saúde Mental',
-        titulo: 'Autocobrança excessiva: reconheça os sinais',
+        titulo: 'Você não precisa ser perfeito para merecer descanso',
         corpo: '<p>Querer fazer bem feito, ser responsável, buscar crescimento — tudo isso é saudável. O problema começa quando a régua que usamos para nos avaliar é tão alta que nunca conseguimos nos sentir suficientes.</p><h3>Autocobrança x autocuidado</h3><p>Existe uma diferença importante entre se responsabilizar pelos seus atos e se punir por cada imperfeicão. A autocobrança saudável te motiva. A excessiva te paralisa, te esgota e alimenta uma voz interna que nunca está satisfeita.</p><h3>Sinais de que a autocobrança está pesada demais</h3><p><strong>Dificuldade em celebrar conquistas:</strong> mal termina uma tarefa e já está pensando no que precisa melhorar.</p><p><strong>Medo constante de decepcionar:</strong> você age mais por medo do erro do que pelo prazer de fazer algo bem feito.</p><p><strong>Cansaço que não passa:</strong> mesmo descansando, há uma sensação de que “deveria estar fazendo mais”.</p><p><strong>Perfeccionismo paralisante:</strong> a tarefa nunca está boa o suficiente para ser entregue — ou sequer começada.</p><h3>O que a ACT propõe?</h3><p>A Terapia de Aceitação e Compromisso trabalha para que você desenvolva uma relação mais gentil consigo mesmo — não ignorando suas responsabilidades, mas aprendendo a agir a partir dos seus valores, e não do medo. Você não precisa se punir para crescer.</p>'
       },
       ansiedade: {
         tag: 'Ansiedade',
-        titulo: 'Ansiedade: quando é hora de buscar ajuda?',
+        titulo: 'Quando a ansiedade passa a falar mais alto que você — e o que fazer com isso',
         corpo: '<p>A ansiedade faz parte da experiência humana. Ela nos ajuda a nos preparar para desafios, a tomar decisões importantes e a reagir a situações de risco. O problema não é sentir ansiedade — é quando ela passa a dominar sua vida.</p><h3>Ansiedade normal x ansiedade que pede atenção</h3><p>É normal sentir ansiedade antes de uma apresentação, de uma conversa difícil ou de uma grande mudança. Mas quando a ansiedade aparece com frequência, sem motivo claro, ou é intensa demais em relação à situação, ela pode estar sinalizando algo que merece cuidado.</p><h3>Sinais de que vale buscar apoio</h3><p><strong>Preocupações constantes e difíceis de controlar</strong> que ocupam boa parte do seu dia.</p><p><strong>Sintomas físicos recorrentes:</strong> coração acelerado, falta de ar, tensão muscular, insônia ou problemas digestivos sem causa médica.</p><p><strong>Evitação:</strong> você começa a deixar de fazer coisas que importam — trabalho, encontros, projetos — para não sentir o desconforto.</p><p><strong>Impacto no dia a dia:</strong> a ansiedade está atrapalhando seus relacionamentos, sua performance ou sua qualidade de vida de forma consistente.</p><h3>Buscar ajuda é um ato de coragem</h3><p>Procurar um psicólogo não significa que você “não aguenta”. Significa que você se importa o suficiente com a própria vida para querer vivê-la com mais leveza. A terapia oferece ferramentas reais para lidar com a ansiedade — não para eliminá-la, mas para que ela não seja mais quem decide por você.</p>'
       },
       orientacaopais: {
         tag: 'Orientação de Pais',
-        titulo: 'Orientação de pais: quando procurar ajuda?',
+        titulo: 'Criar filhos é difícil. Pedir ajuda faz parte de ser um bom pai ou mãe',
         corpo: '<p>Ser pai ou mãe é uma das experiências mais intensas e transformadoras da vida — e também uma das mais desafiadoras. Nenhum manual ensina tudo, e é completamente normal se sentir perdido em algum momento da parentalidade.</p><h3>O que é a orientação de pais?</h3><p>A orientação de pais é um serviço psicológico voltado para apoiar responsáveis na compreensão do comportamento dos filhos e no fortalecimento dos vínculos familiares. Não se trata de ensinar a ser um pai perfeito — mas de oferecer ferramentas práticas e baseadas em ciência para lidar com os desafios do dia a dia.</p><h3>Quando pode ser indicada?</h3><p><strong>Dificuldades de comportamento:</strong> birras intensas, agressividade, desobediência frequente ou comportamentos que fogem do esperado para a faixa etária.</p><p><strong>Transições familiares:</strong> separação dos pais, chegada de um irmão, mudança de escola ou cidade — situações que podem impactar emocionalmente as crianças.</p><p><strong>Diagnósticos recentes:</strong> quando a criança recebe um diagnóstico como TDAH, TEA ou dificuldades de aprendizagem, os pais precisam de suporte para entender e lidar com isso da melhor forma.</p><p><strong>Sensação de impotência:</strong> quando as estratégias que você tenta não funcionam e você sente que perdeu o fio da meada na relação com seu filho.</p><h3>A família inteira se beneficia</h3><p>Quando os pais estão mais seguros, presentes e alinhados, toda a dinâmica familiar muda. A orientação de pais não foca apenas no comportamento da criança — ela cuida do vínculo, da comunicação e da saúde emocional de toda a família.</p>'
       }
     };
@@ -629,6 +632,7 @@
           <div class="contato-info-item"><div class="contato-info-icon">📧</div><div class="contato-info-text">psimanuelabarbosa@gmail.com</div></div>
           <div class="contato-info-item"><div class="contato-info-icon">📱</div><div class="contato-info-text">(43) 98858-3535</div></div>
           <div class="contato-info-item"><div class="contato-info-icon">📍</div><div class="contato-info-text">Av. Ayrton Senna, 500 — Sala 2702<br><span style="color:rgba(255,255,255,.45);">Clínica Núcleo Evoluir · Londrina, PR</span></div></div>
+          <div class="contato-info-item"><div class="contato-info-icon">💻</div><div class="contato-info-text">Atendimento online para todo o Brasil<br><span style="color:rgba(255,255,255,.45);">Via Google Meet · Horários flexíveis</span></div></div>
         </div>
       </div>
       <div>
@@ -641,6 +645,10 @@
           <div class="form-group">
             <label class="form-label" for="servico">Serviço de Interesse</label>
             <select class="form-select" id="servico" name="servico"><option value="" disabled selected>Selecione uma opção</option><option>Psicoterapia Individual</option><option>Orientação de Pais</option><option>Palestras & Aulas</option><option>Avaliação Psicológica</option></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="modalidade">Modalidade de Atendimento</label>
+            <select class="form-select" id="modalidade" name="modalidade"><option value="" disabled selected>Selecione uma opção</option><option>Online (qualquer lugar do Brasil)</option><option>Presencial (Londrina, PR)</option></select>
           </div>
           <div class="form-group"><label class="form-label">Mensagem (opcional)</label><textarea class="form-textarea" placeholder="Conte um pouco sobre o que te trouxe até aqui..."></textarea></div>
           <button class="btn-submit">Enviar Mensagem →</button>
