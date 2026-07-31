@@ -1,2 +1,1097 @@
-<!doctype html><html><head><meta charset="utf-8"><link rel="dns-prefetch" href="//127.0.0.1"><title>CC Libraries</title><script>window.nodeRequire = (window.cep_node && window.cep_node.require) || window.require || function () {};
-        window.process = window.process || (window.cep_node && window.cep_node.process);</script><script defer="defer" src="main.js"></script><link href="styles.css" rel="stylesheet"></head><body><div id="content"></div></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="author" content="Manuela Pereira Barbosa" />
+  <meta name="description" content="Psicóloga clínica em Londrina-PR com atendimento online em português para qualquer lugar do mundo. Especialista em ACT, avaliação psicológica e orientação de pais. Agende sua consulta. CRP 08/39992." />
+  <meta name="keywords" content="psicóloga Londrina, psicóloga online, terapia online, terapia Londrina, ACT terapia, avaliação psicológica Londrina, ansiedade depressão Londrina, Manuela Barbosa psicóloga, psicoterapia online" />
+  <meta property="og:title" content="Manuela Barbosa | Psicóloga em Londrina – PR" />
+  <meta property="og:description" content="Psicóloga clínica em Londrina-PR. Atendimento presencial e online. Especialista em ACT, avaliação psicológica e orientação de pais. CRP 08/39992." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.manuelabarbosa.com.br" />
+  <title>Manuela Barbosa | Psicóloga em Londrina e Online – PR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand: #E8DED2;
+      --sand-light: #F5F0EB;
+      --sand-dark: #D4C8B8;
+      --dark-brown: #4A3728;
+      --brown-mid: #6B4F3A;
+      --brown-accent: #8B6650;
+      --brown-light: #C4A882;
+      --text-dark: #2C1F14;
+      --text-mid: #5C4A38;
+      --text-light: #8B7355;
+      --white: #FDFAF7;
+      --green-soft: #7A9E7E;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .logo-name {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253,250,247,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--sand-dark);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--dark-brown);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; font-weight: 600; color: var(--sand);
+      letter-spacing: 0.5px;
+    }
+    .logo-name { font-size: 1.1rem; font-weight: 500; color: var(--dark-brown); line-height: 1.2; }
+    .logo-title { font-size: 0.7rem; color: var(--text-light); font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: 0.05em; }
+
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-mid);
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.03em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dark-brown); }
+    .nav-links .nav-cta a {
+      background: var(--dark-brown); color: var(--sand);
+      padding: 0.45rem 1.1rem; border-radius: 2rem;
+      transition: background 0.2s;
+    }
+    .nav-links .nav-cta a:hover { background: var(--brown-mid); }
+    .nav-links .nav-ig a { color: var(--brown-accent); }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--dark-brown); border-radius: 2px; transition: 0.3s; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      padding: 8rem 2rem 4rem;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(160deg, var(--sand-light) 0%, var(--white) 60%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--sand-dark) 0%, transparent 70%);
+      opacity: 0.4;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .hero-sub {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      color: var(--brown-accent); text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300; line-height: 1.15;
+      color: var(--dark-brown); margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; font-weight: 400; }
+    .hero-desc {
+      font-size: 1.05rem; color: var(--text-mid);
+      line-height: 1.8; margin-bottom: 2rem;
+    }
+    .hero-desc strong { color: var(--dark-brown); font-weight: 600; }
+    .hero-crp {
+      font-size: 0.72rem; color: var(--text-light);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--dark-brown); color: var(--sand);
+      padding: 0.85rem 2rem; border-radius: 3rem;
+      text-decoration: none; font-size: 0.88rem; font-weight: 500;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--brown-mid); transform: translateY(-1px); }
+    .btn-secondary {
+      border: 1.5px solid var(--brown-accent); color: var(--brown-accent);
+      padding: 0.85rem 2rem; border-radius: 3rem;
+      text-decoration: none; font-size: 0.88rem; font-weight: 500;
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-secondary:hover { background: var(--sand); }
+
+    .hero-img-wrap {
+      position: relative; display: flex; justify-content: center;
+    }
+    .hero-img-wrap img {
+      width: 100%; max-width: 420px;
+      border-radius: 2px 40% 2px 40%;
+      object-fit: cover; aspect-ratio: 3/4;
+      filter: sepia(8%);
+    }
+    .hero-img-badge {
+      position: absolute; bottom: 2rem; left: -1rem;
+      background: var(--white); border: 1px solid var(--sand-dark);
+      padding: 0.75rem 1.2rem; border-radius: 0.75rem;
+      box-shadow: 0 4px 20px rgba(74,55,40,0.12);
+      font-size: 0.78rem; color: var(--text-mid);
+    }
+    .hero-img-badge strong { display: block; font-size: 1.1rem; color: var(--dark-brown); font-family: 'Cormorant Garamond', serif; }
+
+    /* FEELINGS */
+    .feelings {
+      background: var(--dark-brown); color: var(--sand);
+      padding: 5rem 2rem;
+    }
+    .feelings-inner { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      opacity: 0.6; margin-bottom: 0.5rem;
+    }
+    .feelings h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300; margin-bottom: 0.5rem; color: var(--sand);
+    }
+    .feelings h2 em { font-style: italic; }
+    .feelings-sub { opacity: 0.7; margin-bottom: 2.5rem; font-size: 0.9rem; }
+
+    .feelings-group { margin-bottom: 2rem; }
+    .feelings-group-label {
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      opacity: 0.5; margin-bottom: 0.75rem;
+    }
+    .feelings-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .feeling-tag {
+      display: inline-block;
+      border: 1px solid rgba(232,222,210,0.3);
+      color: var(--sand); padding: 0.5rem 1.1rem;
+      border-radius: 2rem; font-size: 0.82rem;
+      text-decoration: none; transition: all 0.2s;
+      background: rgba(232,222,210,0.07);
+    }
+    .feeling-tag:hover {
+      background: rgba(232,222,210,0.2);
+      border-color: rgba(232,222,210,0.6);
+    }
+
+    /* SOBRE */
+    .sobre {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+    .sobre-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center;
+    }
+    .sobre-img img {
+      width: 100%; border-radius: 40% 2px 40% 2px;
+      object-fit: cover; aspect-ratio: 3/4;
+      filter: sepia(5%);
+    }
+    .sobre-content .section-label { color: var(--brown-accent); }
+    .sobre-content h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--dark-brown); margin-bottom: 1.5rem; line-height: 1.2;
+    }
+    .sobre-content h2 em { font-style: italic; }
+    .sobre-content p {
+      color: var(--text-mid); line-height: 1.85; margin-bottom: 1rem; font-size: 0.95rem;
+    }
+    .sobre-content p strong { color: var(--dark-brown); }
+
+    /* TRAJETÓRIA */
+    .trajetoria { padding: 6rem 2rem; background: var(--sand-light); }
+    .trajetoria-inner { max-width: 800px; margin: 0 auto; }
+    .trajetoria .section-label { color: var(--brown-accent); }
+    .trajetoria h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--dark-brown); margin-bottom: 3rem; line-height: 1.2;
+    }
+    .trajetoria h2 em { font-style: italic; }
+
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--sand-dark);
+    }
+    .timeline-item {
+      position: relative; padding: 0 0 2.5rem 2rem;
+    }
+    .timeline-dot {
+      position: absolute; left: -5px; top: 4px;
+      width: 11px; height: 11px; border-radius: 50%;
+      border: 2px solid var(--brown-accent);
+      background: var(--sand-light);
+    }
+    .timeline-dot.filled { background: var(--dark-brown); border-color: var(--dark-brown); }
+    .timeline-year {
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--brown-accent); margin-bottom: 0.3rem; font-weight: 600;
+    }
+    .timeline-item h3 {
+      font-size: 1.15rem; font-weight: 500; color: var(--dark-brown); margin-bottom: 0.3rem;
+    }
+    .timeline-institution {
+      font-size: 13px; font-weight: 400; color: var(--text-light);
+      letter-spacing: 0.01em; margin-bottom: 6px; font-style: italic;
+    }
+    .timeline-item p { font-size: 14.5px; color: var(--text-light); line-height: 1.75; }
+    .timeline-quote {
+      margin-top: 1rem; padding: 1.5rem 2rem;
+      background: var(--white); border-left: 3px solid var(--brown-accent);
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .timeline-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-style: italic; color: var(--brown-mid);
+    }
+    .timeline-quote cite { font-size: 0.75rem; color: var(--text-light); display: block; margin-top: 0.5rem; }
+
+    /* ACT */
+    .act { padding: 6rem 2rem; background: var(--white); }
+    .act-inner { max-width: 1000px; margin: 0 auto; }
+    .act .section-label { color: var(--brown-accent); }
+    .act h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--dark-brown); margin-bottom: 1rem; line-height: 1.2;
+    }
+    .act h2 em { font-style: italic; }
+    .act-intro { color: var(--text-mid); max-width: 650px; line-height: 1.85; margin-bottom: 3rem; font-size: 0.95rem; }
+    .act-intro em { font-style: italic; color: var(--dark-brown); }
+    .act-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .act-pillar {
+      background: var(--sand-light); padding: 2rem;
+      border-radius: 1rem; border: 1px solid var(--sand-dark);
+    }
+    .act-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 300; color: var(--sand-dark);
+      line-height: 1; margin-bottom: 0.75rem;
+    }
+    .act-pillar h3 { font-size: 1rem; color: var(--dark-brown); margin-bottom: 0.5rem; }
+    .act-pillar p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+
+    /* SERVIÇOS */
+    .servicos { padding: 6rem 2rem; background: var(--sand-light); }
+    .servicos-inner { max-width: 1100px; margin: 0 auto; }
+    .servicos .section-label { color: var(--brown-accent); }
+    .servicos h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--dark-brown); margin-bottom: 3rem; line-height: 1.2;
+    }
+    .servicos h2 em { font-style: italic; }
+    .srv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .srv-card {
+      background: var(--white); border-radius: 1rem;
+      padding: 2rem; border: 1px solid var(--sand-dark);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .srv-card:hover { box-shadow: 0 8px 30px rgba(74,55,40,0.1); transform: translateY(-2px); }
+    .srv-icon { font-size: 1.6rem; margin-bottom: 1.1rem; }
+    .srv-card h3 { font-size: 1.1rem; color: var(--dark-brown); margin-bottom: 0.75rem; }
+    .srv-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.75; margin-bottom: 1rem; }
+    .srv-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .srv-tag {
+      font-size: 0.72rem; padding: 0.25rem 0.75rem;
+      border-radius: 2rem; font-weight: 500;
+    }
+    .srv-tag.presencial { background: var(--sand); color: var(--brown-mid); }
+    .srv-tag.online { background: rgba(122,158,126,0.15); color: var(--green-soft); }
+
+    /* BLOG */
+    .blog { padding: 6rem 2rem; background: var(--white); }
+    .blog-inner { max-width: 1100px; margin: 0 auto; }
+    .blog .section-label { color: var(--brown-accent); }
+    .blog h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--dark-brown); margin-bottom: 3rem; line-height: 1.2;
+    }
+    .blog h2 em { font-style: italic; }
+    .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .blog-card {
+      padding: 2rem; border-radius: 1rem;
+      background: var(--sand-light); border: 1px solid var(--sand-dark);
+      text-decoration: none; color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s; display: block;
+    }
+    .blog-card:hover { box-shadow: 0 8px 30px rgba(74,55,40,0.1); transform: translateY(-2px); }
+    .blog-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 300; color: var(--sand-dark); line-height: 1; margin-bottom: 0.5rem;
+    }
+    .blog-tag {
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--brown-accent); font-weight: 600; margin-bottom: 0.5rem;
+    }
+    .blog-card h3 { font-size: 1rem; color: var(--dark-brown); margin-bottom: 0.5rem; line-height: 1.4; }
+    .blog-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; margin-bottom: 1rem; }
+    .blog-link { font-size: 0.8rem; color: var(--brown-accent); font-weight: 500; }
+    .blog-cta {
+      margin-top: 2rem; padding: 1.5rem 2rem;
+      background: var(--sand-light); border-radius: 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border: 1px solid var(--sand-dark);
+    }
+    .blog-cta p { color: var(--text-mid); font-size: 0.9rem; }
+    .blog-cta p strong { color: var(--dark-brown); }
+
+    /* FAQ */
+    .faq { padding: 6rem 2rem; background: var(--sand-light); }
+    .faq-inner { max-width: 800px; margin: 0 auto; }
+    .faq .section-label { color: var(--brown-accent); }
+    .faq h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--dark-brown); margin-bottom: 3rem; line-height: 1.2;
+    }
+    .faq h2 em { font-style: italic; }
+    .faq-item {
+      border-bottom: 1px solid var(--sand-dark); padding: 1.25rem 0;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.95rem; font-weight: 500; color: var(--dark-brown);
+      text-align: left; padding: 0; gap: 1rem;
+    }
+    .faq-q span { font-size: 1.2rem; color: var(--brown-accent); transition: transform 0.3s; }
+    .faq-q[aria-expanded="true"] span { transform: rotate(45deg); }
+    .faq-a {
+      display: none; padding-top: 0.75rem;
+      font-size: 0.9rem; color: var(--text-light); line-height: 1.8;
+    }
+    .faq-a.open { display: block; }
+    .faq-a strong { color: var(--dark-brown); }
+
+    /* CTA BANNER */
+    .cta-banner {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--dark-brown), var(--brown-mid));
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(232,222,210,0.1) 0%, transparent 70%);
+    }
+    .cta-banner-inner { max-width: 700px; margin: 0 auto; position: relative; }
+    .cta-banner img {
+      width: 140px; height: 140px; border-radius: 50%;
+      object-fit: cover; margin-bottom: 1.5rem;
+      border: 3px solid rgba(232,222,210,0.4);
+    }
+    .cta-banner blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-style: italic; color: var(--sand);
+      margin-bottom: 2rem; line-height: 1.5;
+    }
+    .cta-banner .btn-primary { background: var(--sand); color: var(--dark-brown); }
+    .cta-banner .btn-primary:hover { background: var(--sand-dark); }
+
+    /* DEPOIMENTOS */
+    .depoimentos { padding: 6rem 2rem; background: var(--white); }
+    .depoimentos-inner { max-width: 1100px; margin: 0 auto; }
+    .depoimentos .section-label { color: var(--brown-accent); }
+    .depoimentos h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--dark-brown); margin-bottom: 3rem; line-height: 1.2;
+    }
+    .depoimentos h2 em { font-style: italic; }
+    .dep-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+    .dep-card {
+      background: var(--sand-light); padding: 1.75rem;
+      border-radius: 1rem; border: 1px solid var(--sand-dark);
+    }
+    .dep-stars { color: #D4A853; margin-bottom: 0.75rem; font-size: 0.9rem; }
+    .dep-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; font-style: italic; }
+    .dep-google {
+      text-align: center;
+    }
+    .dep-google a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--brown-accent); text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      border: 1px solid var(--sand-dark); padding: 0.65rem 1.5rem; border-radius: 2rem;
+      transition: all 0.2s;
+    }
+    .dep-google a:hover { background: var(--sand-light); }
+
+    /* CONTATO */
+    .contato { padding: 6rem 2rem; background: var(--sand-light); }
+    .contato-inner { max-width: 1000px; margin: 0 auto; }
+    .contato .section-label { color: var(--brown-accent); }
+    .contato h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; color: var(--dark-brown); margin-bottom: 1rem; line-height: 1.2;
+    }
+    .contato h2 em { font-style: italic; }
+    .contato-sub { color: var(--text-mid); margin-bottom: 3rem; font-size: 0.95rem; }
+    .contato-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; }
+    .ct-items { display: flex; flex-direction: column; gap: 1.25rem; }
+    .ct-item { display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-mid); font-size: 0.9rem; line-height: 1.6; }
+    .ct-icon { font-size: 1rem; margin-top: 0.1rem; flex-shrink: 0; }
+
+    .contato-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.78rem; font-weight: 500; color: var(--text-mid); letter-spacing: 0.03em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem 1rem; border: 1.5px solid var(--sand-dark);
+      border-radius: 0.5rem; background: var(--white);
+      font-family: 'Inter', sans-serif; font-size: 0.88rem;
+      color: var(--text-dark); transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none; border-color: var(--brown-accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      background: var(--dark-brown); color: var(--sand);
+      border: none; padding: 0.9rem 2.5rem; border-radius: 3rem;
+      font-size: 0.9rem; font-weight: 500; cursor: pointer;
+      transition: background 0.2s, transform 0.2s; align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--brown-mid); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark-brown); color: var(--sand);
+      padding: 2.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .footer-logo .logo-icon { background: rgba(232,222,210,0.2); color: var(--sand); }
+    .footer-logo .logo-name { color: var(--sand); font-size: 1rem; }
+    .footer-logo .logo-title { opacity: 0.6; }
+    .footer-info { font-size: 0.78rem; opacity: 0.6; text-align: center; line-height: 1.7; }
+    .footer-info a { color: var(--sand); text-decoration: underline; cursor: pointer; }
+    .footer-social a {
+      color: var(--sand); opacity: 0.7; text-decoration: none;
+      font-size: 0.8rem; transition: opacity 0.2s;
+    }
+    .footer-social a:hover { opacity: 1; }
+
+    /* POLÍTICA */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(44,31,20,0.7); backdrop-filter: blur(4px);
+      padding: 2rem; overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    .modal {
+      background: var(--white); border-radius: 1rem;
+      padding: 3rem; max-width: 700px; width: 100%; position: relative;
+      margin: auto;
+    }
+    .modal h2 { font-size: 1.8rem; color: var(--dark-brown); margin-bottom: 1.5rem; }
+    .modal h3 { font-size: 1rem; color: var(--dark-brown); margin: 1.5rem 0 0.5rem; }
+    .modal p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.8; }
+    .modal strong { color: var(--dark-brown); }
+    .modal-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: none; border: none; font-size: 1.2rem;
+      cursor: pointer; color: var(--text-light);
+    }
+
+    /* WHATSAPP */
+    .wa-btn {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50;
+      background: #25D366; color: white;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      text-decoration: none; font-size: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(0,0,0,0.25); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; gap: 1rem;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--white); padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--sand-dark);
+      }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-img-wrap { order: -1; }
+      .hero-img-wrap img { max-width: 280px; }
+      .hero-actions { justify-content: center; }
+      .hero-img-badge { display: none; }
+      .sobre-inner { grid-template-columns: 1fr; }
+      .sobre-img { order: -1; }
+      .sobre-img img { max-width: 280px; margin: 0 auto; display: block; }
+      .act-pillars { grid-template-columns: 1fr; }
+      .srv-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .dep-grid { grid-template-columns: 1fr; }
+      .contato-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .blog-cta { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="inicio">
+  <a href="#inicio" class="logo">
+    <div class="logo-icon">MB</div>
+    <div>
+      <div class="logo-name">Manuela Barbosa</div>
+      <div class="logo-title">Psicóloga Clínica</div>
+    </div>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#faq">Dúvidas</a></li>
+    <li class="nav-cta"><a href="#contato">Agendar Consulta</a></li>
+    <li class="nav-ig"><a href="https://instagram.com/psi.manubarbosa" target="_blank" rel="noopener">@psi.manubarbosa</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-crp">Online para o mundo todo · CRP 08/39992</p>
+      <h1>Que bom que<br>você chegou <em>até&nbsp;aqui.</em></h1>
+      <p class="hero-desc">Dar esse primeiro passo em direção à terapia já diz muito sobre você.<br><br>Estou aqui para caminhar ao seu lado — com <strong>ciência, cuidado e presença.</strong></p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn-primary">Agendar Consulta</a>
+        <a href="#sobre" class="btn-secondary">Saiba mais</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="psimanu-89.jpg" alt="Manuela Barbosa Psicóloga" />
+      <div class="hero-img-badge">
+        <strong>Manuela Barbosa</strong>
+        Psicóloga Clínica · ACT
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEELINGS -->
+<section class="feelings">
+  <div class="feelings-inner">
+    <p class="section-label">Um espaço para você</p>
+    <h2>O que você tem sentido <em>ultimamente?</em></h2>
+    <p class="feelings-sub">Clique no que está te acompanhando — você não precisa carregar isso sozinho.</p>
+    <div class="feelings-group">
+      <p class="feelings-group-label">Emoções</p>
+      <div class="feelings-tags">
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20sofrido%20com%20ansiedade%20ou%20preocupações%20constantes%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Ansiedade ou preocupações constantes</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20sentido%20tristeza%20persistente%20ou%20depressão%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Tristeza persistente ou depressão</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20dificuldade%20em%20lidar%20com%20as%20minhas%20emoções%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Dificuldade em lidar com as emoções</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20com%20dificuldade%20de%20lidar%20com%20perdas%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Dificuldade em lidar com perdas</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20sentindo%20muito%20estresse%20ou%20sobrecarga%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Estresse ou sobrecarga</a>
+      </div>
+    </div>
+    <div class="feelings-group">
+      <p class="feelings-group-label">Comportamento &amp; Mente</p>
+      <div class="feelings-tags">
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Sofro%20com%20autocobrança%20excessiva%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Autocobrança excessiva</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20passando%20por%20baixa%20autoestima%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Baixa autoestima</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20dificuldade%20com%20procrastinação%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Procrastinação</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20dificuldade%20com%20atenção%20e%20concentração%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Dificuldade com atenção e concentração</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20vivenciando%20burnout%20ou%20insatisfação%20profissional%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Burnout ou insatisfação profissional</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Sinto%20que%20tenho%20baixo%20autoconhecimento%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Baixo autoconhecimento</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Estou%20com%20problemas%20para%20dormir%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Problemas para dormir</a>
+      </div>
+    </div>
+    <div class="feelings-group">
+      <p class="feelings-group-label">Relações &amp; Social</p>
+      <div class="feelings-tags">
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20sentido%20dificuldades%20nos%20relacionamentos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Dificuldades nos relacionamentos</a>
+        <a href="https://wa.me/5543988583535?text=Olá%20Manuela!%20Tenho%20dificuldade%20com%20habilidades%20sociais%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos." class="feeling-tag">Dificuldade com habilidades sociais</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <div class="sobre-img">
+      <img src="psimanu-55.jpg" alt="Manuela Barbosa" />
+    </div>
+    <div class="sobre-content">
+      <p class="section-label">Sobre mim</p>
+      <h2>Olá, sou a <em>Manuela Barbosa</em></h2>
+      <p>Sou psicóloga clínica graduada pela PUCPR (2018–2023) e tenho formação em Terapia de Aceitação e Compromisso (ACT). Acredito que a ciência do comportamento é uma ferramenta poderosa para ajudar pessoas a viverem uma vida com mais sentido — mesmo nos dias difíceis.</p>
+      <p>Atendo de forma presencial crianças, adolescentes e adultos em Londrina-PR, e <strong>online em português para qualquer lugar do mundo</strong> — adolescentes e adultos.</p>
+      <p>Além da psicoterapia individual, ofereço orientação de pais, avaliação psicológica, palestras e aulas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRAJETÓRIA -->
+<section class="trajetoria" id="trajetoria">
+  <div class="trajetoria-inner">
+    <p class="section-label">Minha trajetória</p>
+    <h2>Como cheguei até <em>aqui</em></h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2018</div>
+        <h3>Início da graduação em Psicologia</h3>
+        <p class="timeline-institution">PUCPR</p>
+        <p>Ingressei na PUCPR movida pela curiosidade e vontade de ajudar pessoas a viverem vidas mais significativas.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2019</div>
+        <h3>Estágio em Análise do Comportamento Aplicada (ABA)</h3>
+        <p>Comecei um estágio em ABA, atendendo crianças e adolescentes neurodivergentes. Aqui começou a minha paixão pela ciência e pelo comportamento humano.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2021</div>
+        <h3>Estágio clínico e primeiros atendimentos</h3>
+        <p>Iniciei os atendimentos clínicos e fiquei completamente apaixonada pela clínica — foi a confirmação de que estava no caminho certo.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2022</div>
+        <h3>Estágio em Neuropsicologia</h3>
+        <p>Comecei um estágio na faculdade realizando testes e avaliações psicológicas. Uma área que me encantou profundamente.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2023</div>
+        <h3>Pós-graduação em Análise do Comportamento Aplicada</h3>
+        <p class="timeline-institution">CBI of Miami</p>
+        <p>Aprofundei meus conhecimentos na área que me apaixonou desde os primeiros estágios, com foco em aplicações clínicas e comportamentais.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2024</div>
+        <h3>Mestrado — Neurociências do Comportamento</h3>
+        <p class="timeline-institution">UEL</p>
+        <p>Ingressei como aluna especial no mestrado, estudando Neurociências do Comportamento e ampliando minha visão sobre os fundamentos biológicos e psicológicos do comportamento humano.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2025</div>
+        <h3>Formação em Terapia de Aceitação e Compromisso (ACT)</h3>
+        <p>Me aprofundei na ACT e me identifiquei profundamente com sua proposta: não lutar contra o sofrimento, mas aprender a se mover em direção ao que importa — mesmo com ele presente.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2026</div>
+        <h3>Pós-graduação em Neuropsicologia</h3>
+        <p class="timeline-institution">IPOG</p>
+        <p>Iniciei a pós-graduação em Neuropsicologia pelo IPOG, aprofundando minha compreensão sobre avaliação e reabilitação neuropsicológica.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot filled"></div>
+        <div class="timeline-year">2024 – Hoje</div>
+        <h3>Agenda aberta para atendimentos</h3>
+        <p>Com o CRP em mãos e todo o conhecimento adquirido na minha caminhada, abri agenda para atendimentos e sigo atendendo presencialmente e online — levando uma psicologia baseada em evidências e centrada no que realmente importa para cada pessoa.</p>
+        <div class="timeline-quote">
+          <blockquote>"A ciência do comportamento a serviço do seu bem-estar."</blockquote>
+          <cite>Manuela Pereira Barbosa</cite>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACT -->
+<section class="act" id="act">
+  <div class="act-inner">
+    <p class="section-label">Como trabalho</p>
+    <h2>Terapia de Aceitação e <em>Compromisso (ACT)</em></h2>
+    <p class="act-intro">A ACT é uma abordagem baseada em evidências que propõe uma relação diferente com os seus pensamentos e emoções. Em vez de tentar eliminar o que te incomoda, o objetivo é desenvolver <strong>flexibilidade psicológica</strong> — a capacidade de agir de acordo com o que realmente importa para você, mesmo quando a vida é difícil.<br><br>Não se trata de se sentir melhor a qualquer custo, mas de <em>viver melhor</em> — com mais presença, clareza e conexão com os seus valores.</p>
+    <div class="act-pillars">
+      <div class="act-pillar">
+        <div class="act-number">01</div>
+        <h3>Aceitar o que não podemos controlar</h3>
+        <p>Aprender a fazer espaço para pensamentos e emoções difíceis, sem deixar que eles ditem suas ações.</p>
+      </div>
+      <div class="act-pillar">
+        <div class="act-number">02</div>
+        <h3>Conectar-se com seus valores</h3>
+        <p>Identificar o que realmente importa para você e usar isso como bússola para as suas decisões do dia a dia.</p>
+      </div>
+      <div class="act-pillar">
+        <div class="act-number">03</div>
+        <h3>Agir com compromisso</h3>
+        <p>Dar passos concretos em direção a uma vida mais plena — mesmo quando o medo, a ansiedade ou a dúvida aparecem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="servicos-inner">
+    <p class="section-label">Serviços que ofereço</p>
+    <h2>Como eu posso <em>te ajudar</em></h2>
+    <div class="srv-grid">
+      <div class="srv-card">
+        <div class="srv-icon">💬</div>
+        <h3>Psicoterapia Individual</h3>
+        <p>Atendimento personalizado para crianças, adolescentes e adultos que desejam desenvolver habilidades emocionais e construir formas mais saudáveis de lidar com desafios comportamentais e psicológicos.</p>
+        <div class="srv-tags">
+          <span class="srv-tag presencial">Presencial — Londrina, PR</span>
+          <span class="srv-tag online">Online em português — Mundo todo</span>
+        </div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">👨‍👩‍👧</div>
+        <h3>Orientação de Pais</h3>
+        <p>Suporte especializado para pais e responsáveis que desejam compreender melhor o comportamento dos filhos e fortalecer os vínculos familiares.</p>
+        <div class="srv-tags">
+          <span class="srv-tag presencial">Presencial — Londrina, PR</span>
+          <span class="srv-tag online">Online em português — Mundo todo</span>
+        </div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">🎤</div>
+        <h3>Palestras &amp; Aulas</h3>
+        <p>Conteúdo educativo sobre saúde mental, comportamento e bem-estar para empresas, escolas e instituições — baseado em ciência e acessível a todos.</p>
+        <div class="srv-tags">
+          <span class="srv-tag presencial">Presencial — Londrina, PR</span>
+          <span class="srv-tag online">Online em português — Mundo todo</span>
+        </div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon">🧠</div>
+        <h3>Avaliação Psicológica</h3>
+        <p>Avaliações psicológicas com investigação do funcionamento cognitivo (atenção, memória, funções executivas e habilidades intelectuais), com aplicação de testes padronizados, devolutiva e laudo psicológico.</p>
+        <div class="srv-tags">
+          <span class="srv-tag presencial">Presencial — Londrina, PR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="blog-inner">
+    <p class="section-label">Blog</p>
+    <h2>Psicologia no <em>dia a dia</em></h2>
+    <div class="blog-grid">
+      <a href="#" class="blog-card">
+        <div class="blog-num">01</div>
+        <div class="blog-tag">Avaliação Psicológica</div>
+        <h3>Se conhecer mais fundo: o que é uma avaliação psicológica e o que ela pode revelar sobre você</h3>
+        <p>Entenda o que acontece em um processo de avaliação psicológica, para quem é indicada e o que esperar do laudo — sem mistérios.</p>
+        <span class="blog-link">Ler artigo →</span>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-num">02</div>
+        <div class="blog-tag">Saúde Mental</div>
+        <h3>Você não precisa ser perfeito para merecer descanso</h3>
+        <p>Exigir muito de si mesmo pode parecer virtude — mas quando passa do limite, vira sofrimento.</p>
+        <span class="blog-link">Ler artigo →</span>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-num">03</div>
+        <div class="blog-tag">Ansiedade</div>
+        <h3>Quando a ansiedade passa a falar mais alto que você — e o que fazer com isso</h3>
+        <p>Sentir ansiedade é humano. Mas como saber quando ela passa a pedir atenção profissional?</p>
+        <span class="blog-link">Ler artigo →</span>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-num">04</div>
+        <div class="blog-tag">Orientação de Pais</div>
+        <h3>Criar filhos é difícil. Pedir ajuda faz parte de ser um bom pai ou mãe</h3>
+        <p>Criar filhos é uma das tarefas mais desafiadoras da vida. Saiba quando buscar apoio profissional.</p>
+        <span class="blog-link">Ler artigo →</span>
+      </a>
+    </div>
+    <div class="blog-cta">
+      <p>Gostou do conteúdo? <strong>Que tal dar o próximo passo?</strong></p>
+      <a href="#contato" class="btn-primary">Agendar Consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <p class="section-label">Dúvidas frequentes</p>
+    <h2>Perguntas <em>frequentes</em></h2>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Como funciona a primeira consulta? <span>+</span>
+      </button>
+      <div class="faq-a">
+        A primeira sessão é um espaço de acolhimento e escuta. Conversamos sobre o que te trouxe até aqui, suas expectativas e como você está se sentindo. Não há respostas certas ou erradas — é um momento para nos conhecermos e entendermos juntas se há conexão para seguirmos o processo terapêutico.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Quanto tempo dura cada sessão? <span>+</span>
+      </button>
+      <div class="faq-a">
+        As sessões têm duração de 50 minutos. A frequência mais comum é semanal, mas isso pode ser ajustado de acordo com a sua necessidade e o andamento do processo terapêutico.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Como funciona o atendimento online? <span>+</span>
+      </button>
+      <div class="faq-a">
+        As sessões online acontecem por videochamada pelo <strong>Google Meet</strong>, uma plataforma gratuita, segura e de fácil acesso. Você receberá o link por WhatsApp antes da sessão. Você só precisa de um celular ou computador, internet estável e um ambiente privado. O atendimento online tem a mesma qualidade e cuidado do presencial — e a vantagem de acontecer no conforto da sua casa, de qualquer lugar do mundo, em português.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Quanto tempo leva para ver resultados? <span>+</span>
+      </button>
+      <div class="faq-a">
+        Cada processo é único. Algumas pessoas percebem mudanças já nas primeiras semanas, enquanto outras levam mais tempo — e isso é completamente normal. A terapia não tem um prazo fixo: ela dura o tempo necessário para que você desenvolva as ferramentas que precisa para viver com mais qualidade e bem-estar.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Você atende pelo plano de saúde? <span>+</span>
+      </button>
+      <div class="faq-a">
+        No momento, os atendimentos são realizados de forma particular. Entre em contato pelo WhatsApp para saber mais sobre valores e formas de pagamento disponíveis.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <img src="psimanu-201.jpg" alt="Manuela Barbosa" />
+    <blockquote>"A terapia é um dos atos mais corajosos que você pode fazer por si mesmo."</blockquote>
+    <a href="#contato" class="btn-primary">Quero Começar →</a>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <div class="depoimentos-inner">
+    <p class="section-label">Depoimentos</p>
+    <h2>O que dizem os <em>pacientes</em></h2>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p>"A Dra. Manuela é uma profissional extremamente competente, acolhedora e ética. Demonstra sensibilidade e escuta atenta, criando um ambiente seguro e respeitoso. Recomendo com total confiança o trabalho dessa excelente psicóloga."</p>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p>"Uma excelente profissional, dedicada a oferecer o melhor atendimento baseado em evidências científicas. Admiro muito!"</p>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p>"Excelente profissional, desde o início do atendimento fui acolhida, e desde então estou sendo acompanhada com muito profissionalismo e empatia."</p>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p>"Dra. Manuela, uma excelente profissional, um doce de pessoa. Minha filha amou muito conhecer ela, muito dedicada na profissão dela! ❤️"</p>
+      </div>
+    </div>
+    <div class="dep-google">
+      <a href="https://www.google.com/search?q=Psicóloga+Clínica-+Manuela+Barbosa&stick=H4sIAAAAAAAA_-NgU1I1qLA0SU0yMTZMTUtOTjZPNEuyMqhIMTIxMTNKTjJONLAwTk22WMSqElCcmXx4c05-eqKCc87htXmZyYm6Cr6JeaWpOYkKTolFSfnFiQB-_YHYUAAAAA&hl=pt-BR" target="_blank" rel="noopener">Ver todas as avaliações no Google →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="contato-inner">
+    <p class="section-label">Contato</p>
+    <h2>Vamos dar o <em>primeiro passo?</em></h2>
+    <p class="contato-sub">O caminho começa com uma decisão. Entre em contato e agende sua consulta — responderei em até 24 horas.</p>
+    <div class="contato-grid">
+      <div class="ct-items">
+        <div class="ct-item"><div class="ct-icon">📧</div> psimanuelabarbosa@gmail.com</div>
+        <div class="ct-item"><div class="ct-icon">📱</div> (43) 98858-3535</div>
+        <div class="ct-item"><div class="ct-icon">📍</div> Londrina, PR</div>
+        <div class="ct-item"><div class="ct-icon">💻</div> Atendimento online em português para o mundo todo<br><span style="padding-left: 1.75rem; display: block; opacity: 0.7; font-size: 0.82rem;">Via Google Meet · Horários flexíveis</span></div>
+      </div>
+      <form class="contato-form" id="contatoForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+          </div>
+          <div class="form-group">
+            <label for="tel">Telefone</label>
+            <input type="tel" id="tel" name="tel" placeholder="(00) 00000-0000" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="servico">Serviço de Interesse</label>
+          <select id="servico" name="servico">
+            <option value="">Selecione uma opção</option>
+            <option>Psicoterapia Individual</option>
+            <option>Orientação de Pais</option>
+            <option>Palestras &amp; Aulas</option>
+            <option>Avaliação Psicológica</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="modalidade">Modalidade de Atendimento</label>
+          <select id="modalidade" name="modalidade">
+            <option value="">Selecione uma opção</option>
+            <option>Online em português (qualquer lugar do mundo)</option>
+            <option>Presencial (Londrina, PR)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="msg">Mensagem (opcional)</label>
+          <textarea id="msg" name="msg" placeholder="Conta um pouco sobre o que está sentindo..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar Mensagem →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="logo-icon">MB</div>
+      <div>
+        <div class="logo-name">Manuela Barbosa</div>
+        <div class="logo-title">Psicóloga Clínica</div>
+      </div>
+    </div>
+    <div class="footer-info">
+      © 2026 · Todos os direitos reservados · <a onclick="document.getElementById('modal-privacidade').classList.add('open')">Política de Privacidade</a><br>
+      CRP 08/39992
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/psi.manubarbosa" target="_blank" rel="noopener">@psi.manubarbosa</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL POLÍTICA -->
+<div class="modal-overlay" id="modal-privacidade">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-privacidade').classList.remove('open')">✕</button>
+    <h2>Política de Privacidade</h2>
+    <p style="font-size:0.75rem;color:var(--text-light);margin-bottom:1rem;">Última atualização: maio de 2026</p>
+    <h3>1. Responsável pelo tratamento</h3>
+    <p>Manuela Pereira Barbosa, Psicóloga – CRP 08/39992, responsável pelo site <strong>manuelabarbosa.com.br</strong>, é a controladora dos dados coletados neste site.</p>
+    <h3>2. Dados coletados</h3>
+    <p>Ao preencher o formulário de contato, coletamos: nome completo, telefone e e-mail. Esses dados são fornecidos voluntariamente por você.</p>
+    <h3>3. Finalidade do tratamento</h3>
+    <p>Os dados coletados são utilizados exclusivamente para responder ao seu contato e fornecer informações sobre os serviços de psicologia oferecidos.</p>
+    <h3>4. Compartilhamento de dados</h3>
+    <p>Seus dados não são vendidos, alugados ou compartilhados com terceiros para fins comerciais. Podemos utilizar ferramentas de comunicação (como e-mail e WhatsApp) para responder ao seu contato.</p>
+    <h3>5. Sigilo profissional</h3>
+    <p>Todo conteúdo compartilhado em atendimentos é protegido pelo sigilo ético profissional, conforme o Código de Ética do Psicólogo (CFP).</p>
+    <h3>6. Seus direitos (LGPD)</h3>
+    <p>Conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a: acessar, corrigir ou solicitar a exclusão dos seus dados. Para exercer esses direitos, entre em contato pelo e-mail <strong>psimanuelabarbosa@gmail.com</strong>.</p>
+    <h3>7. Contato</h3>
+    <p>Dúvidas sobre esta política podem ser enviadas para: <strong>psimanuelabarbosa@gmail.com</strong></p>
+  </div>
+</div>
+
+<!-- WA -->
+<a href="https://wa.me/5543988583535" class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<script>
+  // Nav toggle mobile
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-q').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.classList.add('open');
+      }
+    });
+  });
+
+  // Form submit -> WhatsApp
+  document.getElementById('contatoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const servico = document.getElementById('servico').value;
+    const modalidade = document.getElementById('modalidade').value;
+    const msg = document.getElementById('msg').value;
+    const texto = `Olá Manuela! Me chamo ${nome}. Tenho interesse em ${servico || 'atendimento'} (${modalidade || 'a definir'}).${msg ? ' ' + msg : ''}`;
+    window.open('https://wa.me/5543988583535?text=' + encodeURIComponent(texto), '_blank');
+  });
+
+  // Close modal on overlay click
+  document.getElementById('modal-privacidade').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('open');
+  });
+</script>
+</body>
+</html>
